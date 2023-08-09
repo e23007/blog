@@ -7,4 +7,13 @@
   --gray-75: #444444;
   --black: #222222;
   --accent: #0d87e0;
+
+  /* タイポグラフィ */
+  --body: clamp(1rem, 0.95rem + 0.2vw, 1.125rem); /*16-18px*/
+  --display: clamp(4.5rem, 1.83rem + 11.34vw, 10rem); /*72-160px*/
+  --heading1: clamp(2rem, 1.3rem + 3vw, 4rem); /*32-64px*/
+  --heading2: calc(var(--body) * 1.5); /*24-27px*/
+  --heading3: calc(var(--body) * 1.2); /*19.2-21.6px*/
+  --small-heading2: clamp(0.875rem, 4vw - 1rem, 1.6875rem); /*14-27px*/
+  --small-heading3: calc(var(--small-heading2) * 0.86); /*12-23px*/
 }
