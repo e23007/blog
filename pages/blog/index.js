@@ -3,10 +3,7 @@ import Hero from 'components/hero'
 const Blog = () => {
   return (
     <>
-      <Hero
-        title='BLOG'
-        subtitle='Recent Posts'
-      />
+      <Hero title='Blog' subtitle='Recent Posts' />
     </>
   )
 }
