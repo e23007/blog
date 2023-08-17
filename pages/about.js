@@ -3,10 +3,23 @@ import Container from 'components/container'
 import PostBody from 'components/post-body'
 import Contact from 'components/contact'
 import { TwoColmn, TwoColmnMain, TwoColmnSidebar } from 'components/two-column'
+import Image from 'next/legacy/image'
+import eyecatch from 'images/about.jpg'
+
 const About = () => {
   return (
     <Container>
       <Hero title='About' subtitle='About development activision' />
+      <figure>
+        <Image
+          src={eyecatch}
+          alt=''
+          layout='responsive'
+          sizes='(min-width:1152px) 1152px,100vw'
+          priority
+          placeholder='blur'
+        />
+      </figure>
       <TwoColmn>
         <TwoColmnMain>
           <PostBody>
