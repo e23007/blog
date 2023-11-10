@@ -1,12 +1,23 @@
 import Hero from 'components/hero'
+import { getAllPosts } from 'lib/api'
 import Meta from 'components/meta'
 import Container from 'components/container'
-const Blog = () => {
+import Posts from 'components/posts'
+
+const Blog = ({ posts }) => {
   return (
     <Container>
       <Meta pageTitle='ブログ' pageDesc='ブログの記事一覧' />
       <Hero title='Blog' subtitle='Recent Posts' />
+      <Posts posts={posts} />
     </Container>
   )
 }
+const getStaticProps = async () => {
+  const posts = await getAllPosts()
+  return {
+    props: { posts: posts }
+  }
+}
 export default Blog
+export { getStaticProps }
