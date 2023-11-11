@@ -96,11 +96,11 @@ const getStaticProps = async context => {
       title: post.title,
       publish: post.publishDate,
       content: post.content,
-      eyecatch: eyecatch,
+      eyecatch,
       categories: post.categories,
-      description: description,
-      prevPost: prevPost,
-      nextPost: nextPost
+      description,
+      prevPost,
+      nextPost
     }
   }
 }
