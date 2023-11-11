@@ -1,20 +1,42 @@
+import { getAllPosts } from 'lib/api'
 import Hero from 'components/hero'
-import Meta from 'components/meta'
+// import Meta from 'components/meta'
 import Container from 'components/container'
-const Home = props => (
+import Posts from 'components/posts'
+import { getPlaiceholder } from 'plaiceholder'
+import Pagination from 'components/pagination'
+// ローカルの代替アイキャッチ画像
+import { eyecatchLocal } from 'lib/constants'
+
+const Home = ({ title, subtitle, imageOn, posts }) => (
   <Container>
-    <Hero {...props} />
+    <Hero title={title} subtitle={subtitle} imageOn />
+    <Posts posts={posts} />
+    <Pagination nextUrl='/blog' nextText='More Posts' />
   </Container>
 )
 
-export const getStaticProps = async contxt => ({
-  props: {
-    title: 'CUBE',
-    subtitle: 'アウトプットしていくサイト',
-    imageOn: 'true'
+const getStaticProps = async contxt => {
+  const posts = await getAllPosts(4)
+  for (const post of posts) {
+    if (!('eyecatch' in post)) {
+      post.eyecatch = eyecatchLocal
+    }
+    const { base64 } = await getPlaiceholder(post.eyecatch.url)
+    post.eyecatch.blurDataURL = base64
   }
-})
+
+  return {
+    props: {
+      title: 'CUBE',
+      subtitle: 'アウトプットしていくサイト',
+      imageOn: 'true',
+      posts
+    }
+  }
+}
 
 export default Home
+export { getStaticProps }
 // <meta neme='description' content='アウトプットしていくサイト' />
-//<meta property='og:description' content='アウトプットしていくサイト' />
+// <meta property='og:description' content='アウトプットしていくサイト' />
