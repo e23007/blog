@@ -19,6 +19,7 @@ const Posts = ({ posts }) => {
                 blurDataURL={eyecatch.blurDataURL}
               />
             </figure>
+            <h2>{title}</h2>
           </Link>
         </article>
       ))}
