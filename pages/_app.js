@@ -1,8 +1,7 @@
 import '@/styles/globals.css'
 import Layout from 'components/layout'
-// import Script from 'next/script'
-// import * as gtag from 'lib/grag'
-
+import Script from 'next/script'
+import * as gtag from 'lib/gtag'
 // Font Awsomeの設定
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import { config } from '@fortawesome/fontawesome-svg-core'
@@ -11,7 +10,7 @@ config.autoAddCss = false
 const App = ({ Component, pageProps }) => {
   return (
     <>
-      {/* <Script
+      <Script
         strategy='afterInteractive'
         src={`https://www.googlemanager.com/gtag/js?id=${gtag.GA_MEASUREMENT_ID}`}
       />
@@ -23,7 +22,7 @@ const App = ({ Component, pageProps }) => {
     gtag('config','${gtag.GA_MEASUREMENT_ID}')
     `
         }}
-      /> */}
+      />
       <Layout>
         <Component {...pageProps} />
       </Layout>
