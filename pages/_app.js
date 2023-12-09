@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+import { useRouter } from 'next/dist/client/router'
 import '@/styles/globals.css'
 import Layout from 'components/layout'
 import Script from 'next/script'
@@ -8,6 +10,16 @@ import { config } from '@fortawesome/fontawesome-svg-core'
 config.autoAddCss = false
 
 const App = ({ Component, pageProps }) => {
+  const router = useRouter()
+  useEffect(() => {
+    const handleRouterChange = url => {
+      gtag.pageviewChange(url)
+    }
+    router.events.on('routeChangeComplete', handleRouterChange)
+    return () => {
+      router.events.off('routeChangeComplete', handleRouterChange)
+    }
+  }, [router.events])
   return (
     <>
       <Script
