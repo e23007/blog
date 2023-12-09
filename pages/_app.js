@@ -29,10 +29,14 @@ const App = ({ Component, pageProps }) => {
       <Script
         id='gtag-init'
         strategy='afterInteractive'
-        dangerouslySetInnerHTMLHTML={{
-          __html: `window.dataLayer=window.dataLayer|| []; function gtag(){dataLayer.push(arguments);}
-    gtag('config','${gtag.GA_MEASUREMENT_ID}')
-    `
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            
+            gtag('config', '${gtag.GA_MEASUREMENT_ID}');
+          `
         }}
       />
       <Layout>
