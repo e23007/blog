@@ -24,7 +24,7 @@ const App = ({ Component, pageProps }) => {
     <>
       <Script
         strategy='afterInteractive'
-        src={`https://www.googlemanager.com/gtag/js?id=${gtag.GA_MEASUREMENT_ID}`}
+        src={`https://www.googletamanager.com/gtag/js?id=${gtag.GA_MEASUREMENT_ID}`}
       />
       <Script
         id='gtag-init'
