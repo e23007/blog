@@ -6,6 +6,7 @@ import Posts from 'components/posts'
 import { getPlaiceholder } from 'plaiceholder'
 // ローカルの代用アイキャッチ画像
 import { eyecatchLocal } from 'lib/constants'
+import { getImageBuffer } from 'lib/getImageBuffer'
 
 const Category = ({ name, posts }) => {
   return (
@@ -35,7 +36,8 @@ const getStaticProps = async context => {
     if (!('eyecatch' in post)) {
       post.eyecatch = eyecatchLocal
     }
-    const { base64 } = await getPlaiceholder(post.eyecatch.url)
+    const imageBuffer = await getImageBuffer(post.eyecatch.url)
+    const { base64 } = await getPlaiceholder(imageBuffer)
     post.eyecatch.blurDataURL = base64
   }
   return {
