@@ -9,7 +9,7 @@ import {
   TwoColumnSidebar
 } from 'components/two-column'
 import Accordion from 'components/accordion'
-import Image from 'next/legacy/image'
+import Image from 'next/image'
 import eyecatch from 'images/about.jpg'
 
 const About = () => {
@@ -27,8 +27,13 @@ const About = () => {
         <Image
           src={eyecatch}
           alt=''
-          layout='responsive'
           sizes='(min-width:1152px) 1152px,100vw'
+          width={eyecatch.width}
+          height={eyecatch.height}
+          style={{
+            width: '100%',
+            height: 'auto'
+          }}
           priority
           placeholder='blur'
         />

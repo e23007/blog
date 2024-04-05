@@ -13,7 +13,7 @@ import {
 import ConvertBody from 'components/convert-body'
 import PostCategories from 'components/post-categories'
 import Pagination from 'components/pagination'
-import Image from 'next/legacy/image'
+import Image from 'next/image'
 import { getPlaiceholder } from 'plaiceholder'
 // ローカルの代用アイキャッチ画像
 import { eyecatchLocal } from 'lib/constants'
@@ -45,10 +45,13 @@ const Post = ({
             key={eyecatch.url}
             src={eyecatch.url}
             alt=''
-            style='responsive'
+            sizes='(min-width:1152px) 1152px 100vw'
             width={eyecatch.width}
             height={eyecatch.height}
-            sizes='(min-width:1152px) 1152px,100vw'
+            style={{
+              width: '100%',
+              height: 'auto'
+            }}
             priority
             placeholder='blur'
             blurDataURL={eyecatch.blurDataURL}
